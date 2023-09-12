@@ -73,6 +73,9 @@ class CustomGoogleScholarOrganic:
     def scrape_google_scholar_organic_results(
             self,
             query: str,
+            start_year: int,
+            end_year: int,
+            rand_range: tuple = (1, 3),
             pagination: bool = False,
             save_to_csv: bool = False, 
             save_to_json: bool = False
@@ -137,7 +140,7 @@ class CustomGoogleScholarOrganic:
         if pagination:
             while True:
                 # parse all pages
-                driver.get(f'https://scholar.google.com/scholar?q={query}&hl=en&gl=us&start={page_num}')
+                driver.get(f'https://scholar.google.com/scholar?q={query}&hl=en&gl=us&start={page_num}&as_ylo={start_year}&as_yhi={end_year}')
                 parser = LexborHTMLParser(driver.page_source)
                 
                 self.parse(parser=parser, organic_results_data=organic_results_data)
@@ -145,12 +148,12 @@ class CustomGoogleScholarOrganic:
                 # pagination
                 if parser.css_first('.gs_ico_nav_next'):  # checks for the "Next" page button
                     page_num += 10                        # paginate to the next page
-                    time.sleep(random.randint(1, 3))      # sleep between paginations
+                    time.sleep(random.randint(*rand_range))      # sleep between paginations
                 else:
                     break
         else:
             # parse first page only
-            driver.get(f'https://scholar.google.com/scholar?q={query}&hl=en&gl=us&start={page_num}')
+            driver.get(f'https://scholar.google.com/scholar?q={query}&hl=en&gl=us&start={page_num}&as_ylo={start_year}&as_yhi={end_year}')
             parser = LexborHTMLParser(driver.page_source)
         
             self.parse(parser=parser, organic_results_data=organic_results_data)
