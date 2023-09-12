@@ -148,7 +148,7 @@ class CustomGoogleScholarOrganic:
                 # pagination
                 if parser.css_first('.gs_ico_nav_next'):  # checks for the "Next" page button
                     page_num += 10                        # paginate to the next page
-                    time.sleep(random.randint(*rand_range))      # sleep between paginations
+                    time.sleep(random.uniform(*rand_range))      # sleep between paginations
                 else:
                     break
         else:
