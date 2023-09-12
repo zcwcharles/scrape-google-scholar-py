@@ -23,8 +23,7 @@ ____
 
   <a href="https://pepy.tech/project/scrape-google-scholar-py">![Downloads](https://static.pepy.tech/badge/scrape-google-scholar-py/month)</a>
   <a href="">![licence](https://img.shields.io/github/license/dimitryzub/scrape-google-scholar-py?color=blue)</a>
-  [![codecov](https://codecov.io/github/dimitryzub/scrape-google-scholar-py/branch/main/graph/badge.svg?token=OIQKN0O3B9)](https://codecov.io/github/dimitryzub/scrape-google-scholar-py)
-  
+
 </div>
 
 
@@ -53,7 +52,7 @@ SerpApi backend is more reliable because of:
 5. [Top publications metrics](https://scholar.google.com/citations?view_op=top_venues&hl=en). Categories is also supported (as function argument). Saves to CSV/JSON. Sub-categories are not yet supported.
 6. [Journal articles](https://github.com/dimitryzub/scrape-google-scholar/issues/2) (with pagination).
 
-You can use [`scholary`](https://github.com/scholarly-python-package/scholarly) to parse the data instead. However, it only extracts first 3 points above (organic, profile, author results).  
+You can use [`scholary`](https://github.com/scholarly-python-package/scholarly) to parse the data instead. However, it only extracts first 3 points below.  
 
   <details>
   <summary>Things custom backend doesn't support yet</summary>
@@ -93,13 +92,13 @@ Install via `pip`:
 $ pip install scrape-google-scholar-py
 ```
 
-Install from source (single piped command):
+Install from source:
 
 ```bash
-git clone https://github.com/dimitryzub/scrape-google-scholar-py.git \
-&& cd scrape-google-scholar-py \
-&& python -m venv env && source env/Scripts/activate \
-&& pip install -r requirements.txt
+$ git clone https://github.com/dimitryzub/scrape-google-scholar-py.git
+$ cd scrape-google-scholar-py
+$ python -m venv env && source env/Scripts/activate # windows activation
+$ pip install -r requirements.txt
 ```
 
 ### Possible errors that you might encounter
@@ -115,14 +114,6 @@ git clone https://github.com/dimitryzub/scrape-google-scholar-py.git \
   See resolved issue: [[Linux] Web-driver exits unexpectedly using CustomGoogleScholarOrganic() #7](https://github.com/dimitryzub/scrape-google-scholar-py/issues/7)	
 </details>
 
-
-<details>
-<summary>For MAC users, possible issues and fixes</summary>
-	
-  - ✅ [(resolved question): Wheels failed to build while pip installing](https://github.com/dimitryzub/scrape-google-scholar-py/issues/12#issuecomment-1554266222)
-</details>	
-	
-	
 <details>
 <summary>If it throws an error with `selenium-stealth`</summary>
 
