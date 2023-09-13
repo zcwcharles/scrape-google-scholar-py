@@ -63,6 +63,7 @@ class CustomGoogleScholarOrganic:
                 'title': title,
                 'title_link': title_link,
                 'publication_info': publication_info,
+                'cid': result.attrs['data-cid'],
                 'snippet': snippet if snippet else None,
                 'cited_by_link': f'https://scholar.google.com{cited_by_link}' if cited_by_link else None,
                 'cited_by_count': cited_by_count if cited_by_count else None,
